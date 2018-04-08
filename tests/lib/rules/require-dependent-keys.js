@@ -17,6 +17,15 @@ ruleTester.run('require-dependent-keys', rule, {
             return this.get('bar') * 2;
           })
         });`
+    },
+    {
+      code: `
+        export default class MyComponent extends Component {
+          @computed('bar')
+          get foo() {
+            return this.get('bar') * 2;
+          }
+        }`
     }
   ],
   invalid: [
